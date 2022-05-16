@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <body>
+
+    <link rel='stylesheet' href='bootstrap.min.css'></style>
+    <link rel='stylesheet' href='font-awesome.min.css'></style>
+
+  <div class="container">
+    <header class="text-center text-white">
+    <title> wordhelper </title>
+
+<h1 class = 'header'>
+  wordhelper
+</h1>
+
+<p class = 'desc'>
+  Search for words ending with, starting with, contains or in a position.
+</p>
+<p class = 'desc'>
+    Limited functionality for now. Search for 3-6 letter words, '.' are wildcards.
+  </p>
+  <p class = 'desc'>
+    'abb..' = 'abbot'
+    <p class = 'desc'>'ma..' = 'mark'</p>
+</p>
+   <p class = 'desc'> '......' = 'longlist'</p>
+
+<form method="POST" onSubmit = 'return validate();' class='form' >
+    <input name="text">
+    <input type="submit" onclick = 'this.form.submit();'>
+</form>
+
+<br>
+<br>
+
+<!-- <p id='demo'>{{ words }}</p> 
+complete_words = [x for x in words if len(x) <= 6] -->
+
+
+<p id="demo">"{{ complete_words }}"</p>
+
+
+</header>
+</div>
+</div>
+
+</body>
+
+<script>
+
+
+
+
+
+</script>
+
+<style>
+
+body { 
+background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.container {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  color: white
+}
+
+p { color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-justify: inter-word; }
+
+h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 36px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+
+#demo {
+  color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 22px; line-height: 24px; margin: 0 0 24px; text-justify: inter-word;
+}
+
+input[type=submit] {
+  background-color: #f06237; /* Green */
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.95em;
+  border: 1px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+input[type=submit]:hover {
+  background-color: #b0540e;
+}
+.form {
+border: 5px;
+border-radius: 20px;
+}
+
+</style>

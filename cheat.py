@@ -3,6 +3,7 @@ from pyparsing import line
 
 words = []
 file = open('svenska-ord.txt', encoding='utf-8')
+complete_words = [x for x in words if len(x) <= 6]
 
 def startwith():
     query_start = input("What letters does your word start with?:\n")
@@ -33,6 +34,7 @@ def position():
         pat1 = f'^{pos[0]}{pos[1]}{pos[2]}$'
         for line in file.readlines():
             if re.findall(pat1, line.rstrip('\n')):
+                print(line)
                 line = words.append(line.rstrip('\n'))
     elif len(pos) <= 4:
         pat2 = f'^{pos[0]}{pos[1]}{pos[2]}{pos[3]}$'
@@ -49,15 +51,44 @@ def position():
         for line in file.readlines():
             if re.findall(pat4, line.rstrip('\n')):
                 line = words.append(line.rstrip('\n'))
+    print(words)
+
 
 def htmlsearch():
-    htmlquery = ""
-    pattern_start = f'^{htmlquery}'
+    from app import query
+    query = f'^{query}'
     for line in file.readlines():
-        if re.findall(pattern_start, line.rstrip('\n')):
+        if re.search(query, line.rstrip('\n')):
            line = words.append(line.rstrip('\n'))
-    complete_words = [x for x in words if len(x) <= 6]
-    print(complete_words)
+
+def htmlsearch2():
+    from app import query
+    query_pos = query
+    pos = list(query_pos)
+    if len(pos) <= "3":
+        pat1 = f'^{pos[0]}{pos[1]}{pos[2]}$'
+        for line in file.readlines():
+            if re.findall(pat1, line.rstrip('\n')):
+                line = words.append(line.rstrip('\n'))
+    elif len(pos) <= "4":
+        pat2 = f'^{pos[0]}{pos[1]}{pos[2]}{pos[3]}$'
+        for line in file.readlines():
+            if re.findall(pat2, line.rstrip('\n')):
+                line = words.append(line.rstrip('\n'))
+    elif len(pos) <= "5":
+        pat3 = f'^{pos[0]}{pos[1]}{pos[2]}{pos[3]}{pos[4]}$'
+        for line in file.readlines():
+            if re.findall(pat3, line.rstrip('\n')):
+                line = words.append(line.rstrip('\n'))
+    elif len(pos) <= "6":
+        pat4 = f'^{pos[0]}{pos[1]}{pos[2]}{pos[3]}{pos[4]}{pos[5]}$'
+        for line in file.readlines():
+            if re.findall(pat4, line.rstrip('\n')):
+                line = words.append(line.rstrip('\n'))
+
+
+position()
+
 
 
 # while True:
