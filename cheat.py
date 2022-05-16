@@ -10,6 +10,7 @@ def startwith():
     for line in file.readlines():
         if re.findall(pattern_start, line.rstrip('\n')):
            line = words.append(line.rstrip('\n'))
+           
 
 def endwith():
     query_end = input("What letters does your word end with?:\n")
@@ -49,37 +50,47 @@ def position():
             if re.findall(pat4, line.rstrip('\n')):
                 line = words.append(line.rstrip('\n'))
 
-while True:
-    prompt = "What would you like to search for?\n"
-    prompt += "1: Search for word starting with:\n"
-    prompt += "2: Search for word ending with:\n"
-    prompt += "3: Search for word containing:\n"
-    prompt += "4: Search for letters in a position\n"
-    prompt += "Choose: "
-    command = input(prompt)
-    if command == "1":
-        print("- Search for word starting with - \n")
-        startwith()
-        complete_words = [x for x in words if len(x) <= 6]
-        print(complete_words)
-        break
-    if command == "2":
-        print("- Search for word ending with - \n")
-        endwith()
-        complete_words = [x for x in words if len(x) <= 6]
-        print(complete_words)
-        break
-    if command == "3":
-        print("- Search for word containing - \n")
-        contains()
-        complete_words = [x for x in words if len(x) <= 6]
-        print(complete_words)
-        break
-    if command == "4":
-        print("- Search for letters in a position - \n")
-        position()
-        complete_words = [x for x in words if len(x) <= 6]
-        print(complete_words)
-        break
-    else:
-        print("unknown command.. try again..")
+def htmlsearch():
+    htmlquery = ""
+    pattern_start = f'^{htmlquery}'
+    for line in file.readlines():
+        if re.findall(pattern_start, line.rstrip('\n')):
+           line = words.append(line.rstrip('\n'))
+    complete_words = [x for x in words if len(x) <= 6]
+    print(complete_words)
+
+
+# while True:
+#     prompt = "What would you like to search for?\n"
+#     prompt += "1: Search for word starting with:\n"
+#     prompt += "2: Search for word ending with:\n"
+#     prompt += "3: Search for word containing:\n"
+#     prompt += "4: Search for letters in a position\n"
+#     prompt += "Choose: "
+#     command = input(prompt)
+#     if command == "1":
+#         print("- Search for word starting with - \n")
+#         startwith()
+#         complete_words = [x for x in words if len(x) <= 6]
+#         print(complete_words)
+#         break
+#     if command == "2":
+#         print("- Search for word ending with - \n")
+#         endwith()
+#         complete_words = [x for x in words if len(x) <= 6]
+#         print(complete_words)
+#         break
+#     if command == "3":
+#         print("- Search for word containing - \n")
+#         contains()
+#         complete_words = [x for x in words if len(x) <= 6]
+#         print(complete_words)
+#         break
+#     if command == "4":
+#         print("- Search for letters in a position - \n")
+#         position()
+#         complete_words = [x for x in words if len(x) <= 6]
+#         print(complete_words)
+#         break
+#     else:
+#         print("unknown command.. try again..")
