@@ -1,5 +1,3 @@
-from __future__ import print_function
-import sys
 import pandas as pd
 import nltk
 from flask import request
@@ -55,4 +53,4 @@ def my_form_post():
     return(render_template('index.html', complete_words=words))
 
 if __name__ == "__main__":
-    app.run(port='8088',threaded=False, debug=True)
+    app.run(port='8088',threaded=False)
